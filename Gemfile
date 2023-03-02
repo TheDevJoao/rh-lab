@@ -25,6 +25,7 @@ group :development, :test do
   gem 'ffaker', '~> 2.21.0'
   gem 'rspec-rails', '~> 6.0'
   gem 'simplecov'
+  gem 'rails-controller-testing'
 end
 
 group :development do
