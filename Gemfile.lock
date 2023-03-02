@@ -93,6 +93,9 @@ GEM
     erubi (1.12.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     ffaker (2.21.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -274,6 +277,7 @@ DEPENDENCIES
   capybara
   debug
   factory_bot (~> 6.2)
+  factory_bot_rails
   ffaker (~> 2.21.0)
   importmap-rails
   jbuilder
