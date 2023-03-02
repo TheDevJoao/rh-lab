@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
+require_relative '../services/active_employees_getter'
+
 class EmployeesController < ApplicationController
   before_action :set_employee, only: %i[show edit update destroy]
 
   # GET /employees or /employees.json
   def index
-    @employees = Employee.all
+    @employees = ActiveEmployeesGetter.new.call
   end
 
   # GET /employees/1 or /employees/1.json
