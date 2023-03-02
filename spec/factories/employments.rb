@@ -7,6 +7,6 @@ FactoryBot.define do
     registration { FFaker::Number.number(digits: 2) }
     starts_on { FFaker::Time.between(Time.zone.yesterday - 2.years, Time.zone.today).to_date }
     ends_on { nil }
-    reason { [:hire, :promote, :restructure].sample }
+    reason { %i[hire promote restructure].sample }
   end
 end
