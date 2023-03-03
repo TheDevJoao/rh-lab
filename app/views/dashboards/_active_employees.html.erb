@@ -7,10 +7,10 @@
           <th class="bg-blue-100 border text-left px-8 py-4 whitespace-nowrap"># Employees</th>
         </tr>
       </thead>
-      <% data.each do |row| %>
+      <% ReportFetcher.active_employees_by_department.each do |row| %>
         <tr>
-          <td class="border px-8 py-4 w-full whitespace-nowrap">-</td>
-          <td class="border px-8 py-4 w-full whitespace-nowrap"></td>
+          <td class="border px-8 py-4 w-full whitespace-nowrap"><%= row.department_name %></td>
+          <td class="border px-8 py-4 w-full whitespace-nowrap"><%= row.employee_count %></td>
         </tr>
       <% end %>
     </table>
