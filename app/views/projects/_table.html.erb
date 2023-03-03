@@ -9,16 +9,20 @@
           <th class="bg-blue-100 border text-left px-8 py-4 whitespace-nowrap"></th>
         </tr>
       </thead>
-      <% projects.each do |project| %>
-        <tr>
-          <td class="border px-8 py-4 w-full whitespace-nowrap"><%= project.name %></td>
-          <td class="border px-8 py-4 whitespace-nowrap"><%= project.starts_on %></td>
-          <td class="border px-8 py-4 whitespace-nowrap"><%= project.ends_on %></td>
-          <td class="border px-8 py-4 whitespace-nowrap">
-            <%= link_to 'Show', project, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-            <%= link_to 'Edit', edit_project_path(project), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-          </td>
-        </tr>
+      <% if projects.present? %>
+        <% projects.each do |project| %>
+          <tr>
+            <td class="border px-8 py-4 w-full whitespace-nowrap"><%= project.name %></td>
+            <td class="border px-8 py-4 whitespace-nowrap"><%= project.starts_on %></td>
+            <td class="border px-8 py-4 whitespace-nowrap"><%= project.ends_on %></td>
+            <td class="border px-8 py-4 whitespace-nowrap">
+              <%= link_to 'Show', project, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+              <%= link_to 'Edit', edit_project_path(project), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+            </td>
+          </tr>
+        <% end %>
+        <% else %>
+          <td>HAS NO CURRENT PROJECTS</td>
       <% end %>
     </table>
   </div>
