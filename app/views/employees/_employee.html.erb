@@ -1,27 +1,27 @@
 <div id="<%= dom_id employee %>">
   <p class="my-5">
     <strong class="block font-medium mb-1">Name:</strong>
-    <%= employee.name %>
+    <%= employee.name ? employee.name : '<name>' %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Department:</strong>
-    <%= '<curent department name>' %>
+    <%= employee.departments.last.name ? employee.departments.last.name : '<current department>' %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Position:</strong>
-    <%= '<curent position name>' %>
+    <%= employee.employments.last.position.name ? employee.employments.last.position.name : '<current position>' %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Salary:</strong>
-    <%= '<curent salary>' %>
+    <%= employee.employments.last.salary ? employee.employments.last.salary : '<current salary>' %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Projects:</strong>
-    <%= render 'projects/table', projects: @employee.projects %>
+    <%= render 'projects/table', projects: employee.projects.order('starts_on DESC') %>
   </p>
 
   <% if action_name != "show" %>
