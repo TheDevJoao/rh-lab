@@ -1,5 +1,5 @@
 class ActiveEmployeesGetter
   def call
-    Employee.joins(:employments).where('employments.ends_on IS NULL')
+    Employee.includes(:employments).where(employments: { ends_on: nil })
   end
 end
