@@ -14,4 +14,11 @@ FactoryBot.define do
       create(:employment, employee:, ends_on: Time.zone.today - 30.days)
     end
   end
+
+  trait :with_department do
+    after(:create) do |employee|
+      department = create(:department, name: 'Engineering')
+      create(:employment, employee:, department:)
+    end
+  end
 end
